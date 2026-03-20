@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mohamed Backer Alim Sahib Z — IT Infrastructure & Cloud Professional</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --black: #07090d;
+  --dark: #0c0f14;
+  --dark2: #111418;
+  --dark3: #171c22;
+  --gold: #c8963e;
+  --gold-light: #e8b86d;
+  --gold-dim: rgba(200,150,62,0.1);
+  --gold-border: rgba(200,150,62,0.2);
+  --white: #f0ece4;
+  --text: #c9c4bb;
+  --muted: #6b6860;
+  --line: rgba(255,255,255,0.06);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--text);font-family:'Inter',sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--black)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:1.2rem clamp(1.5rem,6vw,5rem);background:rgba(7,9,13,0.95);backdrop-filter:blur(24px);border-bottom:1px solid var(--line)}
+.nav-brand{display:flex;align-items:center;gap:.75rem;text-decoration:none}
+.nav-mono{width:34px;height:34px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:.8rem;color:var(--black);flex-shrink:0}
+.nav-n{font-size:.8rem;font-weight:500;color:var(--white);letter-spacing:.04em}
+.nav-links{display:flex;gap:2.2rem;list-style:none;align-items:center}
+.nav-links a{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .25s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:100%;height:1px;background:var(--gold);transition:right .25s}
+.nav-links a:hover{color:var(--gold-light)}
+.nav-links a:hover::after{right:0}
+.nav-cta{font-family:'Inter',sans-serif !important;font-size:.7rem !important;font-weight:500 !important;letter-spacing:.06em !important;text-transform:uppercase !important;color:var(--black) !important;background:var(--gold);padding:.48rem 1.1rem;border-radius:3px;transition:background .2s !important}
+.nav-cta::after{display:none !important}
+.nav-cta:hover{background:var(--gold-light) !important}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:8rem clamp(1.5rem,6vw,5rem) 5rem;position:relative;overflow:hidden;gap:4rem}
+.hero-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(200,150,62,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(200,150,62,.025) 1px,transparent 1px);background-size:72px 72px;pointer-events:none}
+.hero-glow{position:absolute;top:0;right:0;width:55%;height:100%;background:radial-gradient(ellipse 70% 60% at 80% 30%,rgba(200,150,62,.07) 0%,transparent 70%);pointer-events:none}
+.hero-eyebrow{display:flex;align-items:center;gap:.75rem;margin-bottom:1.8rem;animation:sIn .9s ease both}
+.hero-eyebrow-line{width:28px;height:1px;background:var(--gold)}
+.hero-eyebrow-txt{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.hero-name{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(2.8rem,5vw,4.5rem);line-height:1.05;color:var(--white);margin-bottom:.5rem;animation:sIn .9s ease .1s both}
+.hero-name em{font-style:italic;color:var(--gold)}
+.hero-ttl{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem;animation:sIn .9s ease .15s both}
+.hero-desc{font-size:.97rem;color:var(--text);line-height:1.8;max-width:480px;margin-bottom:2.8rem;animation:sIn .9s ease .2s both}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;animation:sIn .9s ease .25s both}
+.btn-g{font-family:'Inter',sans-serif;font-weight:500;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;background:var(--gold);color:var(--black);padding:.82rem 2.2rem;border-radius:3px;text-decoration:none;border:none;cursor:pointer;transition:background .2s,transform .15s,box-shadow .2s}
+.btn-g:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,150,62,.25)}
+.btn-o{font-family:'Inter',sans-serif;font-weight:400;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;background:transparent;color:var(--text);padding:.82rem 2.2rem;border-radius:3px;border:1px solid var(--line);text-decoration:none;cursor:pointer;transition:border-color .2s,color .2s,transform .15s}
+.btn-o:hover{border-color:var(--gold-border);color:var(--gold-light);transform:translateY(-2px)}
+.hero-right{animation:fIn 1.1s ease .4s both}
+.profile-card{background:var(--dark2);border:1px solid var(--gold-border);border-radius:16px;padding:2.2rem;position:relative;overflow:hidden}
+.profile-card::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(200,150,62,.08) 0%,transparent 70%)}
+.p-head{display:flex;align-items:center;gap:1.1rem;margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid var(--line)}
+.p-av{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--gold) 0%,#8a5c1a 100%);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:1.3rem;color:var(--black);flex-shrink:0}
+.p-nm{font-weight:600;font-size:.9rem;color:var(--white)}
+.p-rl{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--gold);letter-spacing:.1em;margin-top:.2rem}
+.p-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.8rem}
+.p-stat{background:var(--dark3);border:1px solid var(--line);border-radius:8px;padding:1.1rem;text-align:center}
+.p-snum{font-family:'Playfair Display',serif;font-weight:700;font-size:2rem;color:var(--gold);display:block;line-height:1}
+.p-slbl{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:.35rem;display:block}
+.p-tags{display:flex;flex-wrap:wrap;gap:.45rem}
+.p-tag{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.07em;color:var(--gold);background:var(--gold-dim);border:1px solid var(--gold-border);padding:.28rem .65rem;border-radius:2px}
+
+@keyframes sIn{from{opacity:0;transform:translateX(-20px)}to{opacity:1;transform:translateX(0)}}
+@keyframes fIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* SECTION */
+.sp{padding:6rem clamp(1.5rem,6vw,5rem)}
+.sp-alt{background:var(--dark)}
+.mw{max-width:1120px;margin:0 auto}
+.sh{margin-bottom:3.5rem}
+.sk{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem}
+.skl{width:22px;height:1px;background:var(--gold)}
+.skt{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.st{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(1.9rem,3.5vw,2.7rem);color:var(--white);letter-spacing:-.01em;line-height:1.1}
+.st em{font-style:italic;color:var(--gold)}
+.ss{font-size:.9rem;color:var(--muted);max-width:540px;margin-top:.75rem;line-height:1.7}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:5rem;align-items:start}
+.ab p{font-size:.95rem;color:var(--text);line-height:1.85;margin-bottom:1rem}
+.ab p strong{color:var(--white);font-weight:500}
+.ab-hi{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-top:1.8rem}
+.hi{background:var(--dark2);border:1px solid var(--line);border-left:2px solid var(--gold);border-radius:8px;padding:1.1rem}
+.hi-k{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.25rem}
+.hi-v{font-size:.8rem;color:var(--white)}
+.info-card{background:var(--dark2);border:1px solid var(--gold-border);border-radius:12px;overflow:hidden;position:sticky;top:7rem}
+.ic-top{background:linear-gradient(135deg,rgba(200,150,62,.14),rgba(200,150,62,.03));padding:1.8rem;border-bottom:1px solid var(--gold-border);display:flex;align-items:center;gap:1rem}
+.ic-av{width:48px;height:48px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:1.1rem;color:var(--black)}
+.ic-nm{font-weight:600;font-size:.9rem;color:var(--white)}
+.ic-rl{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--gold);letter-spacing:.1em;margin-top:.2rem}
+.ic-rows{padding:1.4rem 1.8rem}
+.ir{display:flex;gap:.7rem;align-items:flex-start;padding:.8rem 0;border-bottom:1px solid var(--line)}
+.ir:last-child{border-bottom:none}
+.ii{font-size:.9rem;flex-shrink:0;margin-top:1px;opacity:.85}
+.ik{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block}
+.iv{font-size:.78rem;color:var(--text)}
+.iv a{color:var(--gold);text-decoration:none}
+.iv a:hover{text-decoration:underline}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.4rem}
+.sc{background:var(--dark2);border:1px solid var(--line);border-radius:12px;padding:1.7rem;transition:border-color .3s,transform .25s,box-shadow .3s;position:relative;overflow:hidden}
+.sc::after{content:'';position:absolute;top:0;left:0;width:2px;height:100%;background:var(--gold);transform:scaleY(0);transform-origin:bottom;transition:transform .35s}
+.sc:hover{border-color:var(--gold-border);transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,.4)}
+.sc:hover::after{transform:scaleY(1)}
+.sc-ico{font-size:1.5rem;margin-bottom:.85rem;display:block}
+.sc-n{font-weight:600;font-size:.86rem;color:var(--white);margin-bottom:.9rem;letter-spacing:.02em}
+.sc-pills{display:flex;flex-wrap:wrap;gap:.4rem}
+.sc-p{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.06em;color:var(--muted);background:var(--dark3);border:1px solid var(--line);padding:.25rem .65rem;border-radius:3px;transition:color .2s,border-color .2s}
+.sc:hover .sc-p{color:var(--text);border-color:rgba(200,150,62,.15)}
+
+/* EXPERIENCE */
+.tl{position:relative;padding-left:2rem}
+.tl::before{content:'';position:absolute;left:0;top:12px;bottom:0;width:1px;background:linear-gradient(to bottom,var(--gold) 0%,var(--gold-border) 40%,transparent 100%)}
+.ei{position:relative;margin-bottom:3rem;padding-left:2rem}
+.ei:last-child{margin-bottom:0}
+.e-dot{position:absolute;left:-2.5rem;top:4px;width:11px;height:11px;border-radius:50%;background:var(--black);border:2px solid var(--gold);box-shadow:0 0 0 3px rgba(200,150,62,.1)}
+.ei:first-child .e-dot{background:var(--gold)}
+.e-meta{display:flex;align-items:center;gap:.85rem;flex-wrap:wrap;margin-bottom:.5rem}
+.e-date{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);background:var(--gold-dim);border:1px solid var(--gold-border);padding:.18rem .6rem;border-radius:2px}
+.e-badge{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.1em;color:var(--muted);background:var(--dark3);border:1px solid var(--line);padding:.18rem .6rem;border-radius:2px}
+.e-role{font-family:'Playfair Display',serif;font-weight:600;font-size:1.22rem;color:var(--white);margin-bottom:.25rem}
+.e-co{font-size:.8rem;color:var(--muted);margin-bottom:1rem}
+.e-pts{list-style:none}
+.e-pts li{font-size:.86rem;color:var(--text);line-height:1.65;margin-bottom:.4rem;padding-left:1.1rem;position:relative}
+.e-pts li::before{content:'';position:absolute;left:0;top:10px;width:5px;height:1px;background:var(--gold)}
+
+/* PROJECTS */
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:2rem}
+.pc{background:var(--dark2);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:border-color .3s,transform .25s,box-shadow .3s;display:flex;flex-direction:column}
+.pc:hover{border-color:var(--gold-border);transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.p-thumb{height:180px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.p-thumb-grocery{background:linear-gradient(135deg,#0d1117 0%,#1a2030 50%,rgba(200,150,62,.06) 100%)}
+.p-thumb-agency{background:linear-gradient(135deg,#0a0d14 0%,#111827 50%,rgba(59,130,246,.06) 100%)}
+.p-bar{position:absolute;top:0;left:0;right:0;height:26px;background:rgba(0,0,0,.45);display:flex;align-items:center;padding:0 .7rem;gap:.38rem;border-bottom:1px solid var(--line)}
+.d-r{width:7px;height:7px;border-radius:50%;background:#ff5f56}
+.d-y{width:7px;height:7px;border-radius:50%;background:#ffbd2e}
+.d-g{width:7px;height:7px;border-radius:50%;background:#27c93f}
+.p-live{position:absolute;top:.9rem;right:.9rem;display:flex;align-items:center;gap:.35rem}
+.p-live-dot{width:7px;height:7px;border-radius:50%;background:#4caf50;box-shadow:0 0 8px #4caf50;animation:blink 2s ease infinite}
+.p-live-txt{font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:.1em;color:#4caf50;text-transform:uppercase}
+.p-thumb-inner{background:var(--dark3);border:1px solid var(--gold-border);border-radius:10px;padding:1rem 1.8rem;text-align:center}
+.p-thumb-inner-blue{background:var(--dark3);border:1px solid rgba(96,165,250,.25);border-radius:10px;padding:1rem 1.8rem;text-align:center}
+.p-domain{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:var(--gold);letter-spacing:.1em;margin-bottom:.35rem}
+.p-domain-blue{font-family:'JetBrains Mono',monospace;font-size:.66rem;color:#60a5fa;letter-spacing:.1em;margin-bottom:.35rem}
+.p-tit{font-family:'Playfair Display',serif;font-weight:700;font-size:1.25rem;color:var(--white)}
+.p-body{padding:1.7rem;flex:1;display:flex;flex-direction:column}
+.p-name{font-family:'Playfair Display',serif;font-weight:600;font-size:1.05rem;color:var(--white);margin-bottom:.55rem}
+.p-desc{font-size:.83rem;color:var(--text);line-height:1.7;margin-bottom:1.1rem;flex:1}
+.p-tags{display:flex;flex-wrap:wrap;gap:.42rem;margin-bottom:1.3rem}
+.pt{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.07em;color:var(--gold);background:var(--gold-dim);border:1px solid var(--gold-border);padding:.22rem .58rem;border-radius:2px}
+.pt-blue{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.07em;color:#60a5fa;background:rgba(96,165,250,.08);border:1px solid rgba(96,165,250,.2);padding:.22rem .58rem;border-radius:2px}
+.p-foot{display:flex;align-items:center;justify-content:space-between;padding-top:1.1rem;border-top:1px solid var(--line);gap:.5rem;flex-wrap:wrap}
+.p-role{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+.p-links{display:flex;gap:.5rem;flex-wrap:wrap}
+.p-link{display:flex;align-items:center;gap:.4rem;font-family:'Inter',sans-serif;font-size:.73rem;font-weight:500;color:var(--gold);text-decoration:none;border:1px solid var(--gold-border);padding:.38rem .82rem;border-radius:3px;transition:background .2s,transform .15s}
+.p-link:hover{background:var(--gold-dim);transform:translateY(-1px)}
+.p-link-ig{color:#e1306c;border-color:rgba(225,48,108,.25)}
+.p-link-ig:hover{background:rgba(225,48,108,.08)}
+
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* EDUCATION */
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.edu-h{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem;display:flex;align-items:center;gap:.6rem}
+.edu-h::after{content:'';flex:1;height:1px;background:var(--line)}
+.edu-i{background:var(--dark2);border:1px solid var(--line);border-radius:10px;padding:1.4rem;margin-bottom:.9rem;transition:border-color .25s;position:relative;overflow:hidden}
+.edu-i::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold)}
+.edu-i:hover{border-color:var(--gold-border)}
+.e-deg{font-weight:600;font-size:.88rem;color:var(--white);margin-bottom:.25rem}
+.e-sch{font-size:.78rem;color:var(--muted)}
+.e-yr{font-family:'JetBrains Mono',monospace;font-size:.58rem;color:var(--gold);margin-top:.45rem;letter-spacing:.1em}
+.cert-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.ci{background:var(--dark2);border:1px solid var(--line);border-radius:8px;padding:.95rem 1.1rem;display:flex;align-items:center;gap:.7rem;transition:border-color .25s}
+.ci:hover{border-color:var(--gold-border)}
+.ci-chk{width:20px;height:20px;border-radius:50%;background:var(--gold-dim);border:1px solid var(--gold-border);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:.55rem;flex-shrink:0}
+.ci-n{font-size:.8rem;color:var(--text)}
+
+/* ACHIEVEMENTS */
+.ach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.ac{background:var(--dark2);border:1px solid var(--line);border-radius:12px;padding:2rem;transition:border-color .25s,transform .2s;position:relative;overflow:hidden;text-align:center}
+.ac::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top center,rgba(200,150,62,.05) 0%,transparent 70%);opacity:0;transition:opacity .3s}
+.ac:hover{border-color:var(--gold-border);transform:translateY(-4px)}
+.ac:hover::before{opacity:1}
+.ac-ic{font-size:2.2rem;margin-bottom:.7rem;display:block}
+.ac-lb{font-weight:600;font-size:.88rem;color:var(--white);margin-bottom:.45rem}
+.ac-s{font-size:.78rem;color:var(--muted);line-height:1.55}
+
+/* CONTACT */
+.ct-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.ct-items{margin-top:2.2rem}
+.ct-item{display:flex;align-items:center;gap:1.1rem;padding:1rem 0;border-bottom:1px solid var(--line);text-decoration:none;transition:padding-left .25s}
+.ct-item:last-child{border-bottom:none}
+.ct-item:hover{padding-left:.5rem}
+.ct-ico{width:36px;height:36px;border-radius:8px;background:var(--gold-dim);border:1px solid var(--gold-border);display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.ct-k{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block}
+.ct-v{font-size:.85rem;color:var(--text)}
+.ct-item:hover .ct-v{color:var(--gold-light)}
+.ct-card{background:var(--dark2);border:1px solid var(--gold-border);border-radius:16px;padding:2.4rem;position:relative;overflow:hidden}
+.ct-card::before{content:'';position:absolute;bottom:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(200,150,62,.1) 0%,transparent 70%)}
+.ct-card-h{font-family:'Playfair Display',serif;font-weight:600;font-size:1.35rem;color:var(--white);margin-bottom:.45rem}
+.ct-card-s{font-size:.8rem;color:var(--muted);margin-bottom:1.8rem}
+.avail{display:flex;align-items:center;gap:.55rem;margin-bottom:1.6rem}
+.a-dot{width:7px;height:7px;border-radius:50%;background:#4caf50;box-shadow:0 0 10px #4caf50;animation:blink 2s ease infinite}
+.a-t{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.1em;color:#4caf50}
+.ct-links{display:flex;flex-direction:column;gap:.7rem}
+.ct-lnk{display:flex;align-items:center;gap:.7rem;font-size:.8rem;color:var(--text);text-decoration:none;padding:.85rem 1.1rem;background:var(--dark3);border:1px solid var(--line);border-radius:8px;transition:border-color .2s,color .2s,transform .15s}
+.ct-lnk:hover{border-color:var(--gold-border);color:var(--gold-light);transform:translateX(4px)}
+.ct-lnk-ig:hover{border-color:rgba(225,48,108,.35);color:#f06292}
+.ct-arr{margin-left:auto;font-size:.65rem;opacity:.45}
+
+/* FOOTER */
+footer{padding:1.8rem clamp(1.5rem,6vw,5rem);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-top:1px solid var(--line)}
+.f-brand{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.12em;color:var(--muted)}
+.f-brand span{color:var(--gold)}
+.f-copy{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.1em;color:var(--muted)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;gap:3rem}
+  .about-grid{grid-template-columns:1fr;gap:2.5rem}
+  .info-card{position:static}
+  .edu-grid{grid-template-columns:1fr;gap:2.5rem}
+  .ach-grid{grid-template-columns:1fr}
+  .ct-layout{grid-template-columns:1fr;gap:3rem}
+  .proj-grid{grid-template-columns:1fr}
+  .cert-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .ab-hi{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-brand">
+    <div class="nav-mono">MA</div>
+    <span class="nav-n">Mohamed Backer Alim</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-glow"></div>
+  <div style="position:relative;z-index:1">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <span class="hero-eyebrow-txt">IT Infrastructure &amp; Cloud Professional</span>
+    </div>
+    <h1 class="hero-name">Mohamed Backer<br/><em>Alim Sahib Z</em></h1>
+    <p class="hero-ttl">AWS Specialist · CEO · Python Trainer · Remote Infrastructure</p>
+    <p class="hero-desc">Bridging technical infrastructure expertise with business leadership — managing international cloud operations from Tamil Nadu, India while building technology-driven ventures.</p>
+    <div class="hero-btns">
+      <a href="#experience" class="btn-g">View Experience</a>
+      <a href="#contact" class="btn-o">Get in Touch →</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="profile-card">
+      <div class="p-head">
+        <div class="p-av">MA</div>
+        <div>
+          <div class="p-nm">Mohamed Backer Alim Sahib Z</div>
+          <div class="p-rl">IT Infrastructure Specialist · CEO</div>
+        </div>
+      </div>
+      <div class="p-stats">
+        <div class="p-stat"><span class="p-snum">4+</span><span class="p-slbl">Years Exp.</span></div>
+        <div class="p-stat"><span class="p-snum">5</span><span class="p-slbl">Roles Held</span></div>
+        <div class="p-stat"><span class="p-snum">4</span><span class="p-slbl">Certifications</span></div>
+        <div class="p-stat"><span class="p-snum">2</span><span class="p-slbl">Active Posts</span></div>
+      </div>
+      <div class="p-tags">
+        <span class="p-tag">AWS Cloud</span>
+        <span class="p-tag">Python</span>
+        <span class="p-tag">AI Tools</span>
+        <span class="p-tag">WordPress</span>
+        <span class="p-tag">Remote · Dubai</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="sp sp-alt">
+  <div class="mw">
+    <div class="sh reveal">
+      <div class="sk"><div class="skl"></div><span class="skt">Who I Am</span></div>
+      <h2 class="st">About <em>Me</em></h2>
+    </div>
+    <div class="about-grid">
+      <div class="ab reveal">
+        <p>I am an <strong>IT Infrastructure and Operations Professional</strong> with a multidisciplinary background spanning AWS cloud support, Python programming, AI tooling, digital marketing, and business leadership.</p>
+        <p>Currently serving as <strong>IT Infrastructure Specialist</strong> for Ardhiyat Al Ibdaa Information Solutions — a Dubai-based organisation — working fully remotely from India. In parallel, I lead <strong>AllBee Solutions</strong> as its CEO, driving technology strategy and digital transformation for businesses in Tamil Nadu.</p>
+        <p>My career is rooted in combining <strong>technical depth with strategic thinking</strong> — ensuring cloud infrastructure remains resilient, training the next generation of Python developers, and building digital products that solve real-world problems.</p>
+        <div class="ab-hi">
+          <div class="hi"><div class="hi-k">Location</div><div class="hi-v">Tamil Nadu, India</div></div>
+          <div class="hi"><div class="hi-k">Current Focus</div><div class="hi-v">AWS &amp; Cloud Ops</div></div>
+          <div class="hi"><div class="hi-k">Availability</div><div class="hi-v">Open to Opportunities</div></div>
+          <div class="hi"><div class="hi-k">Work Style</div><div class="hi-v">Remote / Hybrid</div></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="info-card">
+          <div class="ic-top">
+            <div class="ic-av">MA</div>
+            <div>
+              <div class="ic-nm">Mohamed Backer Alim Sahib Z</div>
+              <div class="ic-rl">IT Infrastructure Specialist · CEO</div>
+            </div>
+          </div>
+          <div class="ic-rows">
+            <div class="ir"><span class="ii">✉</span><div><span class="ik">Email</span><span class="iv">alimbacker16@gmail.com</span></div></div>
+            <div class="ir"><span class="ii">📞</span><div><span class="ik">Phone</span><span class="iv">+91 79040 82982</span></div></div>
+            <div class="ir"><span class="ii">📍</span><div><span class="ik">Location</span><span class="iv">Chennai / Nagapattinam, Tamil Nadu</span></div></div>
+            <div class="ir"><span class="ii">🔗</span><div><span class="ik">LinkedIn</span><span class="iv"><a href="https://www.linkedin.com/in/mohamed-alim-7904082982-/" target="_blank">Mohamed Backer Alim</a></span></div></div>
+            <div class="ir"><span class="ii">🏢</span><div><span class="ik">Company</span><span class="iv"><a href="https://allbeesolutions.com" target="_blank">AllBee Solutions</a></span></div></div>
+            <div class="ir"><span class="ii">🎓</span><div><span class="ik">Education</span><span class="iv">B.E. ECE — Anna University, 2022</span></div></div>
+            <div class="ir"><span class="ii">🏅</span><div><span class="ik">Award</span><span class="iv">Service Excellence — Hope Foundation (2024)</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="sp">
+  <div class="mw">
+    <div class="sh reveal">
+      <div class="sk"><div class="skl"></div><span class="skt">Expertise</span></div>
+      <h2 class="st">Core <em>Skills</em></h2>
+      <p class="ss">A broad technical skill set built across cloud infrastructure, programming, IT operations, and business management.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="sc reveal"><span class="sc-ico">☁</span><div class="sc-n">Cloud &amp; Infrastructure</div><div class="sc-pills"><span class="sc-p">Amazon Web Services</span><span class="sc-p">Infrastructure Monitoring</span><span class="sc-p">System Security</span><span class="sc-p">Uptime Management</span><span class="sc-p">Performance Reporting</span></div></div>
+      <div class="sc reveal"><span class="sc-ico">⚙</span><div class="sc-n">Programming &amp; AI</div><div class="sc-pills"><span class="sc-p">Python</span><span class="sc-p">ChatGPT</span><span class="sc-p">Claude AI</span><span class="sc-p">Prompt Engineering</span><span class="sc-p">AI Tool Integration</span></div></div>
+      <div class="sc reveal"><span class="sc-ico">🛠</span><div class="sc-n">IT Support &amp; Operations</div><div class="sc-pills"><span class="sc-p">Troubleshooting</span><span class="sc-p">Ticketing Systems</span><span class="sc-p">Remote Assistance</span><span class="sc-p">Hardware &amp; Software</span><span class="sc-p">Network Issues</span></div></div>
+      <div class="sc reveal"><span class="sc-ico">📊</span><div class="sc-n">Data &amp; Reporting</div><div class="sc-pills"><span class="sc-p">Microsoft Excel</span><span class="sc-p">Pivot Tables</span><span class="sc-p">VLOOKUP</span><span class="sc-p">Performance Dashboards</span><span class="sc-p">MS Office Suite</span></div></div>
+      <div class="sc reveal"><span class="sc-ico">🌐</span><div class="sc-n">Digital &amp; Web</div><div class="sc-pills"><span class="sc-p">WordPress</span><span class="sc-p">WooCommerce</span><span class="sc-p">Digital Marketing</span><span class="sc-p">SEO</span><span class="sc-p">Social Media Growth</span></div></div>
+      <div class="sc reveal"><span class="sc-ico">💼</span><div class="sc-n">Business &amp; Leadership</div><div class="sc-pills"><span class="sc-p">CRM Management</span><span class="sc-p">Client Acquisition</span><span class="sc-p">Strategic Planning</span><span class="sc-p">Technical Training</span><span class="sc-p">Webinars</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="sp sp-alt">
+  <div class="mw">
+    <div class="sh reveal">
+      <div class="sk"><div class="skl"></div><span class="skt">Career</span></div>
+      <h2 class="st">Work <em>Experience</em></h2>
+      <p class="ss">A progressive career across IT infrastructure, business leadership, technical training, and CRM operations.</p>
+    </div>
+    <div class="tl">
+      <div class="ei reveal">
+        <div class="e-dot"></div>
+        <div class="e-meta"><span class="e-date">Aug 2025 — Present</span><span class="e-badge">Remote · Dubai, UAE</span></div>
+        <div class="e-role">IT Infrastructure Specialist</div>
+        <div class="e-co">Ardhiyat Al Ibdaa Information Solutions — Dubai, UAE</div>
+        <ul class="e-pts">
+          <li>Managing AWS cloud infrastructure and monitoring system performance at scale</li>
+          <li>Ensuring high availability, security compliance, and infrastructure optimisation</li>
+          <li>Preparing detailed performance and uptime reports using Microsoft Excel</li>
+          <li>Troubleshooting and resolving network and system-level technical incidents</li>
+        </ul>
+      </div>
+      <div class="ei reveal">
+        <div class="e-dot"></div>
+        <div class="e-meta"><span class="e-date">May 2025 — Present</span><span class="e-badge">Nagapattinam, India</span></div>
+        <div class="e-role">Chief Executive Officer</div>
+        <div class="e-co">AllBee Solutions — Nagapattinam, Tamil Nadu</div>
+        <ul class="e-pts">
+          <li>Leading overall business strategy, operations, and long-term growth planning</li>
+          <li>Managing digital marketing campaigns, SEO, and online brand positioning</li>
+          <li>Conducting technical training programmes, webinars, and client workshops</li>
+          <li>Overseeing WordPress and WooCommerce digital product delivery for clients</li>
+        </ul>
+      </div>
+      <div class="ei reveal">
+        <div class="e-dot"></div>
+        <div class="e-meta"><span class="e-date">Dec 2024 — May 2025</span><span class="e-badge">Remote</span></div>
+        <div class="e-role">Business Development Associate &amp; HR</div>
+        <div class="e-co">Counsel Hub — Remote</div>
+        <ul class="e-pts">
+          <li>Managed CRM systems and engineered structured lead generation pipelines</li>
+          <li>Coordinated employee onboarding and HR documentation processes</li>
+          <li>Supported sales tracking, performance reporting, and operational analytics</li>
+        </ul>
+      </div>
+      <div class="ei reveal">
+        <div class="e-dot"></div>
+        <div class="e-meta"><span class="e-date">Mar 2023 — Dec 2024</span><span class="e-badge">Hope Foundation</span></div>
+        <div class="e-role">Python Trainer</div>
+        <div class="e-co">Hope Foundation</div>
+        <ul class="e-pts">
+          <li>Designed and delivered comprehensive Python and AI tools training curricula</li>
+          <li>Maintained detailed student performance records and progress reports via Excel</li>
+          <li>Recognised with the <strong style="color:var(--gold)">Service Excellence Award (2024)</strong></li>
+        </ul>
+      </div>
+      <div class="ei reveal">
+        <div class="e-dot"></div>
+        <div class="e-meta"><span class="e-date">Sep 2022 — Feb 2023</span><span class="e-badge">Chennai, India</span></div>
+        <div class="e-role">IT Support Engineer</div>
+        <div class="e-co">Atrity Info Solutions — Chennai, Tamil Nadu</div>
+        <ul class="e-pts">
+          <li>Delivered hardware and software technical support to end-users</li>
+          <li>Logged, tracked, and resolved service tickets efficiently within SLA</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="sp">
+  <div class="mw">
+    <div class="sh reveal">
+      <div class="sk"><div class="skl"></div><span class="skt">Portfolio</span></div>
+      <h2 class="st">Featured <em>Projects</em></h2>
+      <p class="ss">Real-world digital products designed, built, and managed under AllBee Solutions.</p>
+    </div>
+    <div class="proj-grid">
+
+      <!-- Project 1: Suplaykart -->
+      <div class="pc reveal">
+        <div class="p-thumb p-thumb-grocery">
+          <div class="p-bar"><div class="d-r"></div><div class="d-y"></div><div class="d-g"></div></div>
+          <div class="p-live"><div class="p-live-dot"></div><span class="p-live-txt">Live</span></div>
+          <div class="p-thumb-inner">
+            <div class="p-domain">suplaykart.com</div>
+            <div class="p-tit">SuplaYKart</div>
+          </div>
+        </div>
+        <div class="p-body">
+          <div class="p-name">Suplaykart — Online Grocery &amp; Food Delivery</div>
+          <p class="p-desc">A fully operational e-commerce platform delivering groceries and food in Nagore within 10 minutes. Features 817+ products across groceries, household essentials, beauty &amp; snacks, with restaurant ordering, order tracking, WooCommerce checkout, and WhatsApp support integration.</p>
+          <div class="p-tags">
+            <span class="pt">WordPress</span>
+            <span class="pt">WooCommerce</span>
+            <span class="pt">Digital Marketing</span>
+            <span class="pt">E-Commerce</span>
+            <span class="pt">817+ Products</span>
+            <span class="pt">10-min Delivery</span>
+          </div>
+          <div class="p-foot">
+            <span class="p-role">Designed &amp; Managed by AllBee Solutions</span>
+            <div class="p-links">
+              <a href="https://suplaykart.com/" target="_blank" class="p-link">Visit Site ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2: AllBee Solutions -->
+      <div class="pc reveal">
+        <div class="p-thumb p-thumb-agency">
+          <div class="p-bar"><div class="d-r"></div><div class="d-y"></div><div class="d-g"></div></div>
+          <div class="p-live"><div class="p-live-dot"></div><span class="p-live-txt">Live</span></div>
+          <div class="p-thumb-inner-blue">
+            <div class="p-domain-blue">allbeesolutions.com</div>
+            <div class="p-tit">AllBee Solutions</div>
+          </div>
+        </div>
+        <div class="p-body">
+          <div class="p-name">AllBee Solutions — Digital Agency &amp; Training Institute</div>
+          <p class="p-desc">A leading computer education centre and digital marketing agency in Nagore offering both online and offline training in Python, MS-Office, Hardware, SEO, and AI tools — alongside services in website design, SEO, graphic design, social media management, and IT support for local businesses.</p>
+          <div class="p-tags">
+            <span class="pt-blue">WordPress</span>
+            <span class="pt-blue">SEO</span>
+            <span class="pt-blue">Digital Marketing</span>
+            <span class="pt-blue">Python Training</span>
+            <span class="pt-blue">Graphic Design</span>
+            <span class="pt-blue">IT Support &amp; AMC</span>
+          </div>
+          <div class="p-foot">
+            <span class="p-role">Founder &amp; CEO</span>
+            <div class="p-links">
+              <a href="https://allbeesolutions.com" target="_blank" class="p-link">Website ↗</a>
+              <a href="https://www.instagram.com/allbee_solutions_/" target="_blank" class="p-link p-link-ig">Instagram ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="sp sp-alt">
+  <div class="mw">
+    <div class="sh reveal">
+      <div class="sk"><div class="skl"></div><span class="skt">Academics</span></div>
+      <h2 class="st">Education &amp; <em>Certifications</em></h2>
+    </div>
+    <div class="edu-grid">
+      <div class="reveal">
+        <div class="edu-h">Academic Degrees</div>
+        <div class="edu-i">
+          <div class="e-deg">B.E. — Electronics &amp; Communication Engineering</div>
+          <div class="e-sch">Anna University, Chennai</div>
+          <div class="e-yr">Class of 2022</div>
+        </div>
+        <div class="edu-i">
+          <div class="e-deg">Diploma — Electronics &amp; Communication Engineering</div>
+          <div class="e-sch">Nagapattinam Polytechnic College</div>
+          <div class="e-yr">Class of 2019</div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="edu-h">Certifications</div>
+        <div class="cert-grid">
+          <div class="ci"><div class="ci-chk">✓</div><span class="ci-n">CCNA</span></div>
+          <div class="ci"><div class="ci-chk">✓</div><span class="ci-n">AWS Fundamentals</span></div>
+          <div class="ci"><div class="ci-chk">✓</div><span class="ci-n">Python Programming</span></div>
+          <div class="ci"><div class="ci-chk">✓</div><span class="ci-n">Advanced Excel</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section class="sp">
+  <div class="mw">
+    <div class="sh reveal">
+      <div class="sk"><div class="skl"></div><span class="skt">Recognition</span></div>
+      <h2 class="st">Key <em>Achievements</em></h2>
+    </div>
+    <div class="ach-grid">
+      <div class="ac reveal"><span class="ac-ic">🏅</span><div class="ac-lb">Service Excellence Award</div><p class="ac-s">Awarded by Hope Foundation in 2024 for outstanding performance in Python and AI training delivery.</p></div>
+      <div class="ac reveal"><span class="ac-ic">🌍</span><div class="ac-lb">International Remote IT Role</div><p class="ac-s">Managing cloud infrastructure for a Dubai-based organisation entirely remotely from Tamil Nadu, India.</p></div>
+      <div class="ac reveal"><span class="ac-ic">🚀</span><div class="ac-lb">CEO — AllBee Solutions</div><p class="ac-s">Founded and leading a technology services company driving digital transformation across Tamil Nadu.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="sp sp-alt">
+  <div class="mw">
+    <div class="ct-layout">
+      <div class="reveal">
+        <div class="sk"><div class="skl"></div><span class="skt">Get in Touch</span></div>
+        <h2 class="st" style="margin-bottom:.75rem">Let's <em>Connect</em></h2>
+        <p class="ss">Open to opportunities in cloud infrastructure, IT leadership, and technology consulting. Let's explore how we can work together.</p>
+        <div class="ct-items">
+          <a href="mailto:alimbacker16@gmail.com" class="ct-item"><div class="ct-ico">✉</div><div><span class="ct-k">Email</span><span class="ct-v">alimbacker16@gmail.com</span></div></a>
+          <a href="tel:+917904082982" class="ct-item"><div class="ct-ico">📞</div><div><span class="ct-k">Phone</span><span class="ct-v">+91 79040 82982</span></div></a>
+          <a href="https://www.linkedin.com/in/mohamed-alim-7904082982-/" target="_blank" class="ct-item"><div class="ct-ico">🔗</div><div><span class="ct-k">LinkedIn</span><span class="ct-v">Mohamed Backer Alim</span></div></a>
+          <a href="https://www.instagram.com/allbee_solutions_/" target="_blank" class="ct-item"><div class="ct-ico">📸</div><div><span class="ct-k">Instagram</span><span class="ct-v">@allbee_solutions_</span></div></a>
+          <a href="https://allbeesolutions.com" target="_blank" class="ct-item"><div class="ct-ico">🏢</div><div><span class="ct-k">Company</span><span class="ct-v">allbeesolutions.com</span></div></a>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="ct-card">
+          <div class="ct-card-h">Ready to Collaborate?</div>
+          <p class="ct-card-s">Currently available for full-time, contract, and consulting roles in cloud infrastructure and IT operations.</p>
+          <div class="avail"><div class="a-dot"></div><span class="a-t">Available for New Opportunities</span></div>
+          <div class="ct-links">
+            <a href="mailto:alimbacker16@gmail.com" class="ct-lnk"><span>✉</span> Send an Email <span class="ct-arr">→</span></a>
+            <a href="https://www.linkedin.com/in/mohamed-alim-7904082982-/" target="_blank" class="ct-lnk"><span>🔗</span> Connect on LinkedIn <span class="ct-arr">→</span></a>
+            <a href="https://www.instagram.com/allbee_solutions_/" target="_blank" class="ct-lnk ct-lnk-ig"><span>📸</span> Follow on Instagram <span class="ct-arr">→</span></a>
+            <a href="https://suplaykart.com/" target="_blank" class="ct-lnk"><span>🛒</span> View Suplaykart <span class="ct-arr">→</span></a>
+            <a href="https://allbeesolutions.com" target="_blank" class="ct-lnk"><span>🏢</span> Visit AllBee Solutions <span class="ct-arr">→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-brand"><span>MA</span> · Mohamed Backer Alim Sahib Z</div>
+  <div class="f-copy">© 2026 · IT Infrastructure &amp; Cloud Professional · Tamil Nadu, India</div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 70);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
